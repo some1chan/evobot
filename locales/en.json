@@ -11,7 +11,7 @@
   "help": {
     "description": "Display all commands and descriptions",
     "embedTitle": "Music Commands",
-    "embedDescription": "Music commands come from a modified version of \\🤖 **[Evobot](https://github.com/eritislami/evobot/)**, a self-hosted Discord music bot."
+    "embedDescription": "Music commands come from a modified version of \\🤖 **[EvoBot](https://github.com/eritislami/evobot/)**, a self-hosted Discord music bot."
   },
   "invite": {
     "description": "Send bot invite link"
