@@ -9,7 +9,7 @@ const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {
   name: "play",
-  cooldown: 3,
+  // cooldown: 3,
   aliases: ["p"],
   description: i18n.__("play.description"),
   async execute(message, args) {

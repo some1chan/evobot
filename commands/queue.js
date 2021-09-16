@@ -3,7 +3,7 @@ const i18n = require("../util/i18n");
 
 module.exports = {
   name: "queue",
-  cooldown: 5,
+  // cooldown: 5,
   aliases: ["q"],
   description: i18n.__("queue.description"),
   async execute(message) {

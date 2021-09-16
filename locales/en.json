@@ -10,8 +10,8 @@
   },
   "help": {
     "description": "Display all commands and descriptions",
-    "embedTitle": "{botname} Help",
-    "embedDescription": "List of all commands"
+    "embedTitle": "Music Commands",
+    "embedDescription": "Music commands come from a modified version of \\🤖 **[Evobot](https://github.com/eritislami/evobot/)**, a self-hosted Discord music bot."
   },
   "invite": {
     "description": "Send bot invite link"

@@ -3,6 +3,7 @@ const YouTubeAPI = require("simple-youtube-api");
 const { YOUTUBE_API_KEY } = require("../util/Util");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const i18n = require("../util/i18n");
+const { EmbedHelper } = require("../util/EmbedHelper");
 
 module.exports = {
   name: "search",
@@ -21,7 +22,7 @@ module.exports = {
     let resultsEmbed = new MessageEmbed()
       .setTitle(i18n.__("search.resultEmbedTtile"))
       .setDescription(i18n.__mf("search.resultEmbedDesc", { search: search }))
-      .setColor("#F8AA2A");
+      .setColor(EmbedHelper.getColorWithFallback(message.guild));
 
     try {
       const results = await youtube.searchVideos(search, 10);
