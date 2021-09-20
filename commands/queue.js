@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const i18n = require("../util/i18n");
+const { EmbedHelper } = require("../util/EmbedHelper");
 
 module.exports = {
   name: "queue",
@@ -80,7 +81,7 @@ function generateQueueEmbed(message, queue) {
     const embed = new MessageEmbed()
       .setTitle(i18n.__("queue.embedTitle"))
       .setThumbnail(message.guild.iconURL())
-      .setColor("#F8AA2A")
+      .setColor(EmbedHelper.getColorWithFallback(message.guild))
       .setDescription(
         i18n.__mf("queue.embedCurrentSong", { title: queue[0].title, url: queue[0].url, info: info })
       )

@@ -5,6 +5,7 @@ const YouTubeAPI = require("simple-youtube-api");
 const scdl = require("soundcloud-downloader").default;
 const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, MAX_PLAYLIST_SIZE, DEFAULT_VOLUME } = require("../util/Util");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+const { EmbedHelper } = require("../util/EmbedHelper");
 
 module.exports = {
   name: "playlist",
@@ -94,7 +95,7 @@ module.exports = {
       .setTitle(`${playlist.title}`)
       .setDescription(newSongs.map((song, index) => `${index + 1}. ${song.title}`))
       .setURL(playlist.url)
-      .setColor("#F8AA2A")
+      .setColor(EmbedHelper.getColorWithFallback(message.guild))
       .setTimestamp();
 
     if (playlistEmbed.description.length >= 2048)

@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const lyricsFinder = require("lyrics-finder");
 const i18n = require("../util/i18n");
+const { EmbedHelper } = require("../util/EmbedHelper");
 
 module.exports = {
   name: "lyrics",
@@ -22,7 +23,7 @@ module.exports = {
     let lyricsEmbed = new MessageEmbed()
       .setTitle(i18n.__mf("lyrics.embedTitle", { title: title }))
       .setDescription(lyrics)
-      .setColor("#F8AA2A")
+      .setColor(EmbedHelper.getColorWithFallback(message.guild))
       .setTimestamp();
 
     if (lyricsEmbed.description.length >= 2048)
