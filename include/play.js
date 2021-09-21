@@ -25,7 +25,7 @@ module.exports = {
         queue.channel.leave();
         !PRUNING && queue.textChannel.send(i18n.__("play.leaveChannel"));
       }, STAY_TIME * 1000);
-      !PRUNING && queue.textChannel.send(i18n.__("play.queueEnded")).catch(console.error);
+      // !PRUNING && queue.textChannel.send(i18n.__("play.queueEnded")).catch(console.error);
       return message.client.queue.delete(message.guild.id);
     }
 
@@ -202,7 +202,7 @@ module.exports = {
 
     collector.on("end", () => {
       playingMessage.reactions.removeAll().catch(console.error);
-      if (PRUNING && playingMessage && !playingMessage.deleted) {
+      if (playingMessage && !playingMessage.deleted) {
         playingMessage.delete({ timeout: 3000 }).catch(console.error);
       }
     });
