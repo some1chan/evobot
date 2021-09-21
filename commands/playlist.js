@@ -6,6 +6,7 @@ const scdl = require("soundcloud-downloader").default;
 const { YOUTUBE_API_KEY, SOUNDCLOUD_CLIENT_ID, MAX_PLAYLIST_SIZE, DEFAULT_VOLUME } = require("../util/Util");
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const { EmbedHelper } = require("../util/EmbedHelper");
+const { Util } = require("discord.js");
 
 module.exports = {
   name: "playlist",
@@ -90,19 +91,22 @@ module.exports = {
       });
 
     serverQueue ? serverQueue.songs.push(...newSongs) : queueConstruct.songs.push(...newSongs);
-
     let playlistEmbed = new MessageEmbed()
-      .setTitle(`${playlist.title}`)
-      .setDescription(newSongs.map((song, index) => `${index + 1}. ${song.title}`))
+      .setAuthor(i18n.__("playlist.playlistAddedToQueue"), message.author.displayAvatarURL({}))
+      .setTitle(`${Util.escapeMarkdown(playlist.title)}`)
+      .setThumbnail(playlist.thumbnails[0])
+      .addField(i18n.__("playlist.enqueued"), i18n.__mf("playlist.enqueuedTrackCount", { count: playlist.videos.length}))
       .setURL(playlist.url)
       .setColor(EmbedHelper.getColorWithFallback(message.guild))
       .setTimestamp();
 
-    if (playlistEmbed.description.length >= 2048)
+    // The description limit is 4096, but this is terrible for anything sane
+    const descriptionMax = 2048;
+    if (playlistEmbed.description?.length >= descriptionMax)
       playlistEmbed.description =
-        playlistEmbed.description.substr(0, 2007) + i18n.__("playlist.playlistCharLimit");
+        playlistEmbed.description.substr(0, descriptionMax - 41) + i18n.__("playlist.playlistCharLimit");
 
-    message.channel.send(i18n.__mf("playlist.startedPlaylist", { author: message.author }), playlistEmbed);
+    message.channel.send(playlistEmbed);
 
     if (!serverQueue) {
       message.client.queue.set(message.guild.id, queueConstruct);
