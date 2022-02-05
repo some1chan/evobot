@@ -1,7 +1,7 @@
 {
   "clip": {
     "description": "Speelt een clip af.",
-    "usagesReply": "Gebruik: /clip <naam>",
+    "usagesReply": "Gebruik: {prefix}clip <naam>",
     "errorQueue": "Kan clip niet afspelen omdat er een actieve wachtrij is.",
     "errorNotChannel": "Je moet eerst een voice channel joinen!"
   },
@@ -71,7 +71,8 @@
     "loopSong": "<@{author}> Herhaling is nu {loop}",
     "stopSong": "<@{author}> ⏹ stopte de muziek!",
     "leaveChannel": "Voice channel verlaten...",
-    "songNotFound": "Audio Not Found"
+    "songNotFound": "Audio Not Found",
+    "songAccessErr": "Video is age restricted, private or unavailable"
   },
   "playlist": {
     "description": "Speel een playlist af van youtube",

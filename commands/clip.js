@@ -8,7 +8,10 @@ module.exports = {
     const { channel } = message.member.voice;
     const queue = message.client.queue.get(message.guild.id);
 
-    if (!args.length) return message.reply(i18n.__("clip.usagesReply")).catch(console.error);
+    if (!args.length)
+      return message
+        .reply(i18n.__mf("clip.usagesReply", { prefix: message.client.prefix }))
+        .catch(console.error);
     if (queue) return message.reply(i18n.__("clip.errorQueue"));
     if (!channel) return message.reply(i18n.__("clip.errorNotChannel")).catch(console.error);
 

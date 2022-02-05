@@ -1,7 +1,7 @@
 {
   "clip": {
     "description": "Klip oynatılıyor.",
-    "usagesReply": "Kullanım: /clip <isim>",
+    "usagesReply": "Kullanım: {prefix}clip <isim>",
     "errorQueue": "Sırada klip olduğu için oynatılamıyor.",
     "errorNotChannel": "Bir sesli kanala girmelisiniz !"
   },
@@ -71,7 +71,8 @@
     "loopSong": "<@{author}> Döngü şuan {loop}",
     "stopSong": "<@{author}> ⏹ müziği durdurdu!",
     "leaveChannel": "Sesli kanaldan çıkıyor...",
-    "songNotFound": "Audio Not Found"
+    "songNotFound": "Audio Not Found",
+    "songAccessErr": "Video is age restricted, private or unavailable"
   },
   "playlist": {
     "description": "Youtubeden bir çalma listesi oynat",
