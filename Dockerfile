@@ -16,9 +16,9 @@ USER ${USER}
 WORKDIR /home/evobot
 
 COPY --chown=${USER}:${USER} package*.json ./
-RUN npm install
+RUN pnpm install
 VOLUME [ "/home/evobot" ]
 
 COPY --chown=${USER}:${USER}  . .
 
-ENTRYPOINT [ "npm", "run", "start" ]
+ENTRYPOINT [ "pnpm", "run", "start" ]
