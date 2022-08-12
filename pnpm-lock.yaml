@@ -1,5 +1,10 @@
 lockfileVersion: 5.4
 
+patchedDependencies:
+  ytdl-core@4.11.0:
+    hash: gbtrdoz56gx7mtjervng7cut3y
+    path: patches/ytdl-core@4.11.0.patch
+
 specifiers:
   '@discordjs/opus': ^0.8.0
   '@discordjs/voice': ^0.11.0
@@ -22,7 +27,7 @@ specifiers:
   tweetnacl: ^1.0.3
   typescript: ^4.7.4
   youtube-sr: ^4.3.0
-  ytdl-core: ^4.11.0
+  ytdl-core: 4.11.0
   ytdl-core-discord: ^1.3.1
 
 dependencies:
@@ -37,7 +42,7 @@ dependencies:
   string-progressbar: 1.0.4
   ts-node: 10.9.1_lep773egrlwq7kh77ngus6artu
   youtube-sr: 4.3.0
-  ytdl-core: 4.11.0
+  ytdl-core: 4.11.0_gbtrdoz56gx7mtjervng7cut3y
   ytdl-core-discord: 1.3.1_uyzvevjdkwikifwuxoapbhy7ay
 
 optionalDependencies:
@@ -2037,7 +2042,7 @@ packages:
     dependencies:
       '@types/node': 15.14.9
       prism-media: 1.3.4_uyzvevjdkwikifwuxoapbhy7ay
-      ytdl-core: 4.11.0
+      ytdl-core: 4.11.0_gbtrdoz56gx7mtjervng7cut3y
     transitivePeerDependencies:
       - '@discordjs/opus'
       - ffmpeg-static
@@ -2045,7 +2050,7 @@ packages:
       - opusscript
     dev: false
 
-  /ytdl-core/4.11.0:
+  /ytdl-core/4.11.0_gbtrdoz56gx7mtjervng7cut3y:
     resolution: {integrity: sha512-Q3hCLiUA9AOGQXzPvno14GN+HgF9wsO1ZBHlj0COTcyxjIyFpWvMfii0UC4/cAbVaIjEdbWB71GdcGuc4J1Lmw==}
     engines: {node: '>=12'}
     dependencies:
@@ -2053,3 +2058,4 @@ packages:
       miniget: 4.2.2
       sax: 1.2.4
     dev: false
+    patched: true

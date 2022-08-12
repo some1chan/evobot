@@ -1,0 +1,24 @@
+diff --git a/lib/sig.js b/lib/sig.js
+index d74542689bf6837e442eb44e35e15dff1aafdba2..a514890cbee7eb0afddb2fcc92b79870928f2f98 100644
+--- a/lib/sig.js
++++ b/lib/sig.js
+@@ -60,11 +60,14 @@ exports.extractFunctions = body => {
+     if (functionName && functionName.length) {
+       const functionStart = `${functionName}=function(a)`;
+       const ndx = body.indexOf(functionStart);
+-      if (ndx >= 0) {
+-        const subBody = body.slice(ndx + functionStart.length);
+-        const functionBody = `var ${functionStart}${utils.cutAfterJSON(subBody)};${functionName}(ncode);`;
+-        functions.push(functionBody);
+-      }
++        // https://github.com/fent/node-ytdl-core/issues/1108#issuecomment-1212500413
++        if (ndx >= 0) {
++            const end = body.indexOf('.join("")};', ndx);
++            const subBody = body.slice(ndx, end);
++
++            const functionBody = `${subBody}.join("")};${functionName}(ncode);`;
++            functions.push(functionBody);
++        }
+     }
+   };
+   extractDecipher();
